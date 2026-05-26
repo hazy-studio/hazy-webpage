@@ -1,0 +1,113 @@
+:root {
+  --weight:    500;      /* font weight for all HTML text */
+  --tracking:  normal;   /* letter-spacing for all HTML text */
+  --form-size: 0.875rem; /* waitlist label + input + success message */
+
+  /* Color palette */
+  --color-bg:          #fff;
+  --color-text:        #000;
+  --color-accent:      #FF544A;
+  --color-accent-dark: #cc3930;
+  --color-placeholder: #bbb;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  font-family: 'Inter', sans-serif;
+  font-weight: var(--weight);
+  letter-spacing: var(--tracking);
+  font-optical-sizing: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 3rem 0 5rem;
+  gap: 3rem;
+}
+
+#canvas {
+  display: block;
+  filter: contrast(1.2) brightness(1.1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 1.75rem;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--color-text);
+}
+
+.description {
+  font-size: var(--form-size);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.accent { color: var(--color-accent); }
+
+.waitlist-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.waitlist-label {
+  font-size: var(--form-size);
+  color: var(--color-text);
+  text-align: center;
+}
+
+#waitlist {
+  position: relative;
+  width: fit-content;
+}
+
+#waitlist input {
+  border: none;
+  outline: none;
+  padding: 0.4rem 0;
+  font: inherit;
+  font-size: var(--form-size);
+  text-align: center;
+  background: transparent;
+  width: min(280px, 75vw);
+  color: var(--color-text);
+}
+
+#waitlist input.done  { pointer-events: none; }
+#waitlist input::placeholder { color: var(--color-placeholder); }
+
+#waitlist button {
+  position: absolute;
+  left: calc(100% + 0.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+#waitlist button:hover { color: var(--color-accent-dark); }
